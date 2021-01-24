@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="merwa"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-01-08 04:33:27 AM"/>
+        <attribute name="created" value="bWVyd2E7REVTS1RPUC1MNzIwUVJHOzIwMjAtMTItMTk7MDM6MjY6MTAgUE07Mjg1OQ=="/>
+        <attribute name="edited" value="bWVyd2E7REVTS1RPUC1MNzIwUVJHOzIwMjAtMTItMTk7MDU6MjA6MzUgUE07MjsyOTcx"/>
+        <attribute name="edited" value="ZW5nc2E7REVTS1RPUC1NSDdWRDU0OzIwMjEtMDEtMDg7MDQ6MzM6MjcgQU07MzsyOTQ0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="priceofadult" type="Real" array="False" size=""/>
+            <assign variable="priceofadult" expression="15.00"/>
+            <declare name="priceofchildren" type="Real" array="False" size=""/>
+            <assign variable="priceofchildren" expression="10.00"/>
+            <declare name="priceoftoddler" type="Real" array="False" size=""/>
+            <assign variable="priceoftoddler" expression="0.00"/>
+            <declare name="total" type="Real" array="False" size=""/>
+            <assign variable="total" expression="0.00"/>
+            <declare name="Sprite" type="Integer" array="False" size=""/>
+            <assign variable="Sprite" expression="2.50"/>
+            <declare name="Pepsi" type="Integer" array="False" size=""/>
+            <assign variable="Pepsi" expression="2.50"/>
+            <declare name="Vodka" type="Integer" array="False" size=""/>
+            <assign variable="Vodka" expression="3.00"/>
+            <declare name="Wine" type="Integer" array="False" size=""/>
+            <assign variable="Wine" expression="3.00"/>
+            <declare name="Water" type="Integer" array="False" size=""/>
+            <assign variable="Water" expression="1.50"/>
+            <declare name="totalvodka" type="Integer" array="False" size=""/>
+            <assign variable="totalvodka" expression="0"/>
+            <declare name="totalsprite" type="Integer" array="False" size=""/>
+            <assign variable="totalsprite" expression="0"/>
+            <declare name="totalpepsi" type="Integer" array="False" size=""/>
+            <assign variable="totalpepsi" expression="0"/>
+            <declare name="totalwine" type="Integer" array="False" size=""/>
+            <assign variable="totalwine" expression="0"/>
+            <declare name="totalwater" type="Integer" array="False" size=""/>
+            <assign variable="totalwater" expression="0"/>
+            <declare name="numberofadults" type="Integer" array="False" size=""/>
+            <declare name="numberofchildren" type="Integer" array="False" size=""/>
+            <declare name="numberoftoddlers" type="Integer" array="False" size=""/>
+            <output expression="&quot;How many adults(16+) will be dining here today? &quot;" newline="True"/>
+            <input variable="numberofadults"/>
+            <output expression="&quot;How many children(4-16) will be dining here today?&quot;" newline="True"/>
+            <input variable="numberofchildren"/>
+            <output expression="&quot;How many toddlers(0-4) will be dining here today? &quot;" newline="True"/>
+            <input variable="numberoftoddlers"/>
+            <declare name="totalpeople" type="Integer" array="False" size=""/>
+            <assign variable="totalpeople" expression="numberofadults + numberofchildren + numberoftoddlers"/>
+            <declare name="totalPRA" type="Real" array="False" size=""/>
+            <assign variable="totalPRA" expression="numberofadults * priceofadult"/>
+            <declare name="totalPRC" type="Real" array="False" size=""/>
+            <assign variable="totalPRC" expression="numberofchildren * priceofchildren"/>
+            <declare name="totalPRT" type="Real" array="False" size=""/>
+            <assign variable="totalPRT" expression="numberoftoddlers * priceoftoddler"/>
+            <assign variable="total" expression="total + totalPRA"/>
+            <assign variable="total" expression="total + totalPRC"/>
+            <assign variable="total" expression="total + totalPRT"/>
+            <declare name="drinkyorn" type="String" array="False" size=""/>
+            <output expression="&quot;Would you like anything to drink? type Y if you do and N if you don't&quot;" newline="True"/>
+            <input variable="drinkyorn"/>
+            <declare name="drink1" type="String" array="False" size=""/>
+            <assign variable="drink1" expression="&quot;0&quot;"/>
+            <while expression="drinkyorn != &quot;Y&quot; &amp;&amp; drinkyorn != &quot;N&quot;">
+                <output expression="&quot;You did not enter 'Y' or 'N' here is another chance to type it correctly&quot;" newline="True"/>
+                <output expression="&quot;Would you like anything to drink? type Y if you do and N if you don't&quot;" newline="True"/>
+                <input variable="drinkyorn"/>
+            </while>
+            <if expression="drinkyorn = &quot;Y&quot;">
+                <then>
+                    <output expression="&quot;We have 'Pepsi', 'Sprite', 'Water', 'Wine', and 'Vodka'. Input the drink's name you wish to consume&quot;" newline="True"/>
+                    <input variable="drink1"/>
+                    <if expression="drink1 = &quot;Sprite&quot;">
+                        <then>
+                            <assign variable="total" expression="total + Sprite"/>
+                            <assign variable="totalsprite" expression="totalsprite + 1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="drink1 = &quot;Pepsi&quot;">
+                        <then>
+                            <assign variable="total" expression="total + Pepsi"/>
+                            <assign variable="totalpepsi" expression="totalpepsi + 1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="drink1 = &quot;Vodka&quot;">
+                        <then>
+                            <assign variable="total" expression="total + Vodka"/>
+                            <assign variable="totalvodka" expression="totalvodka + 1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="drink1 = &quot;Wine&quot;">
+                        <then>
+                            <assign variable="total" expression="total + Wine"/>
+                            <assign variable="totalwine" expression="totalwine + 1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="drink1 = &quot;Water&quot;">
+                        <then>
+                            <assign variable="total" expression="total + Water"/>
+                            <assign variable="totalwater" expression="totalwater + 1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="drink1 != &quot;Wine&quot; &amp;&amp; drink1 != &quot;Vodka&quot;  &amp;&amp; drink1 != &quot;Pepsi&quot; &amp;&amp; drink1 != &quot;Sprite&quot; &amp;&amp; drink1 != &quot;Water&quot;">
+                        <then>
+                            <output expression="&quot;You misspelled the drink, please enter it again&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else/>
+            </if>
+            <while expression="drink1 != &quot;0&quot;">
+                <output expression="&quot;If you would like another drink here is a reminder, we have 'Pepsi', 'Sprite', 'Water', 'Wine', and 'Vodka'. Input the drink's name you wish to consume. Type 0 if you do not want another drink&quot;" newline="True"/>
+                <input variable="drink1"/>
+                <if expression="drink1 = &quot;Sprite&quot;">
+                    <then>
+                        <assign variable="total" expression="total + Sprite"/>
+                        <assign variable="totalsprite" expression="totalsprite + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="drink1 = &quot;Pepsi&quot;">
+                    <then>
+                        <assign variable="total" expression="total + Pepsi"/>
+                        <assign variable="totalpepsi" expression="totalpepsi + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="drink1 = &quot;Vodka&quot;">
+                    <then>
+                        <assign variable="total" expression="total + Vodka"/>
+                        <assign variable="totalvodka" expression="totalvodka + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="drink1 = &quot;Wine&quot;">
+                    <then>
+                        <assign variable="total" expression="total + WIne"/>
+                        <assign variable="totalwine" expression="totalwine + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="drink1 = &quot;Water&quot;">
+                    <then>
+                        <assign variable="total" expression="total + Water"/>
+                        <assign variable="totalwater" expression="totalwater + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="drink1 != &quot;Wine&quot; &amp;&amp; drink1 != &quot;Vodka&quot;  &amp;&amp; drink1 != &quot;Pepsi&quot; &amp;&amp; drink1 != &quot;Sprite&quot; &amp;&amp; drink1 != &quot;Water&quot; &amp;&amp; drink1 != &quot;0&quot;">
+                    <then>
+                        <output expression="&quot;You misspelled the drink, please enter it again&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <declare name="tippercentage" type="Real" array="False" size=""/>
+            <declare name="tipvalue" type="Integer" array="False" size=""/>
+            <declare name="taxvalue" type="Real" array="False" size=""/>
+            <if expression="drink1 = &quot;0&quot;">
+                <then>
+                    <assign variable="taxvalue" expression="(13*total) / 100"/>
+                    <assign variable="total" expression="total + taxvalue"/>
+                    <output expression="&quot;At this moment the total is: &quot;" newline="True"/>
+                    <output expression="total" newline="True"/>
+                    <if expression="totalpeople &lt; 10">
+                        <then>
+                            <declare name="typetip" type="String" array="False" size=""/>
+                            <output expression="&quot;Type 1 if you would rather choose the tip amount through 'dollar' and type 2 if you would rather choose it through 'percentage'&quot;" newline="True"/>
+                            <input variable="typetip"/>
+                            <if expression="typetip = &quot;2&quot;">
+                                <then>
+                                    <output expression="&quot;Please enter the percantage ammount you would like to tip&quot;" newline="True"/>
+                                    <input variable="tippercentage"/>
+                                    <assign variable="tipvalue" expression="(tippercentage*total)/100"/>
+                                    <assign variable="total" expression="total + tipvalue"/>
+                                    <output expression="&quot;The total price will be: &quot;" newline="True"/>
+                                    <output expression="total" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                            <if expression="typetip = &quot;1&quot;">
+                                <then>
+                                    <output expression="&quot;Please enter the ammount you would like to tip&quot;" newline="True"/>
+                                    <input variable="tipvalue"/>
+                                    <assign variable="total" expression="total + tipvalue"/>
+                                    <output expression="&quot;The total price will be: &quot;" newline="True"/>
+                                    <output expression="total" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="totalpeople &gt; 10">
+                        <then>
+                            <output expression="&quot;due to you having over 10 people we are setting a set value for the tip&quot;" newline="True"/>
+                            <assign variable="tippercentage" expression="20"/>
+                            <assign variable="tipvalue" expression="(tippercentage*total)/100"/>
+                            <assign variable="total" expression="total + tipvalue"/>
+                            <output expression="&quot;The total price will be: &quot; + total" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;Here is the bill&quot;" newline="True"/>
+            <output expression="numberofadults &amp; &quot; adults will be served &quot; &amp; &quot; = &quot; &amp; totalPRA" newline="True"/>
+            <output expression="numberofchildren &amp; &quot; children will be served &quot; &amp; &quot; = &quot; &amp; totalPRC" newline="True"/>
+            <output expression="numberoftoddlers &amp; &quot; toddlers will be served &quot; &amp; &quot; = &quot; &amp; totalPRT" newline="True"/>
+            <declare name="totaldrinks" type="Integer" array="False" size=""/>
+            <assign variable="totaldrinks" expression="totalvodka + totalwine + totalpepsi + totalsprite + totalwater"/>
+            <if expression="totaldrinks &gt; 0">
+                <then>
+                    <output expression="&quot;As for the drinks, you ordered: &quot;" newline="True"/>
+                    <if expression="totalvodka &gt; 0">
+                        <then>
+                            <output expression="&quot;you ordered &quot; &amp; totalvodka &amp; &quot; glasses of vodka&quot; &amp; &quot; = &quot; &amp; totalvodka*Vodka" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="totalwine &gt; 0">
+                        <then>
+                            <output expression="&quot;you ordered &quot; &amp; totalwine &amp; &quot; glasses of wine&quot; &amp; &quot; = &quot; &amp; totalwine*Wine" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="totalpepsi &gt; 0">
+                        <then>
+                            <output expression="&quot;you ordered &quot; &amp; totalpepsi &amp; &quot; bottles of pepsi&quot; &amp; &quot; = &quot; &amp; totalpepsi*Pepsi" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="totalsprite &gt; 0">
+                        <then>
+                            <output expression="&quot;you ordered &quot; &amp; totalsprite &amp; &quot; bottles of sprite&quot; &amp; &quot; = &quot; &amp; totalsprite*Sprite" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="totalwater &gt; 0">
+                        <then>
+                            <output expression="&quot;you ordered &quot; &amp; totalwater &amp; &quot; glasses of water&quot; &amp; &quot; = &quot; &amp; totalwater*Water" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;Total tip = &quot; &amp; tipvalue" newline="True"/>
+            <output expression="&quot;Total tax = &quot; &amp; taxvalue" newline="True"/>
+            <output expression="&quot;So once again the total is: &quot; &amp; total" newline="True"/>
+            <if expression="totaldrinks &gt; 0">
+                <then>
+                    <output expression="&quot;You drinks will be on their way shortly, have a great day&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Your order is finished, have a great day&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
